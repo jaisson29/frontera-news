@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NewsHub — Contacto</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="encabezado">
+      <div class="contenedor">
+        <div class="logo"><img src="assets/logo_white.svg" alt="Logo de Frontera news" />FRONTERA<span>NEWS</span></div>
+        <nav class="nav">
+          <a href="index.html">Inicio</a>
+          <a href="noticias.html">Noticias</a>
+          <a href="favoritos.html">Favoritos</a>
+          <a href="contacto.html" class="activo">Contacto</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="seccion">
+        <div class="contenedor formulario-contacto">
+          <div class="seccion-titulo-formulario">
+            <div class="seccion-icono">
+              <img src="assets/logo_white.svg" alt="Icono de contacto" />
+            </div>
+            <h2>Contáctanos</h2>
+            <div>
+              <p>Equipo Frontera News</p>
+            </div>
+          </div>
+
+          <form id="form-contacto" class="form-contacto" novalidate>
+            <div class="campo-grupo">
+              <label for="nombre">Nombre</label>
+              <input type="text" id="nombre" name="nombre" placeholder="nombre"/>
+              <p id="error-nombre" class="error-campo"></p>
+            </div>
+
+            <div class="campo-grupo">
+              <label for="correo">Correo electrónico</label>
+              <input type="email" id="correo" name="correo" placeholder="correo@ejemplo.com" />
+              <p id="error-correo" class="error-campo"></p>
+            </div>
+
+            <div class="campo-grupo">
+              <label for="asunto">Asunto</label>
+              <input type="text" id="asunto" name="asunto" placeholder="asunto" />
+              <p id="error-asunto" class="error-campo"></p>
+            </div>
+
+            <div class="campo-grupo">
+              <label for="mensaje">Mensaje</label>
+              <textarea id="mensaje" name="mensaje" placeholder="mensaje"></textarea>
+              <p id="error-mensaje" class="error-campo"></p>
+            </div>
+
+            <button type="submit" class="boton">Enviar mensaje</button>
+
+            <p id="mensaje-confirmacion" class="mensaje-confirmacion" hidden>
+              Tu mensaje fue enviado correctamente. Te responderemos pronto.
+            </p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="pie">
+      <div class="contenedor">
+        <span>© 2026 NewsHub — Proyecto académico de Desarrollo Front-end</span>
+        <a href="contacto.html">Contáctanos</a>
+      </div>
+    </footer>
+
+    <script src="js/contacto.js"></script>
+  </body>
+</html>

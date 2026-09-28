@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NewsHub — Noticias</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="encabezado">
+      <div class="contenedor">
+        <div class="logo"><img src="assets/logo_white.svg" alt="Logo de Frontera news" />FRONTERA<span>NEWS</span></div>
+        <nav class="nav">
+          <a href="index.html">Inicio</a>
+          <a href="noticias.html" class="activo">Noticias</a>
+          <a href="favoritos.html">Favoritos</a>
+          <a href="contacto.html">Contacto</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="seccion">
+        <div class="contenedor">
+          <div class="seccion-titulo">
+            <h2>Catálogo de noticias</h2>
+          </div>
+
+          <div class="chips">
+            <button class="chip chip-activo" data-categoria="todas">Todas</button>
+            <button class="chip" data-categoria="educativas">Educativas</button>
+            <button class="chip" data-categoria="tecnologicas">Tecnológicas</button>
+            <button class="chip" data-categoria="turisticas">Turísticas</button>
+            <button class="chip" data-categoria="comerciales">Comerciales</button>
+          </div>
+
+          <div id="noticias-grid" class="grid-tarjetas"></div>
+        </div>
+      </section>
+    </main>
+    <footer class="pie">
+      <div class="contenedor">
+        <span>© 2026 NewsHub — Proyecto académico de Desarrollo Front-end</span>
+        <a href="contacto.html">Contáctanos</a>
+      </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/render.js"></script>
+    <script src="js/noticias.js"></script>
+  </body>
+</html>

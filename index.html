@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="assets/logo_white.svg" />
+    <title>NewsHub — Inicio</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="encabezado">
+      <div class="contenedor">
+        <div class="logo"><img src="assets/logo_white.svg" alt="Logo de Frontera news" />FRONTERA<span>NEWS</span></div>
+        <nav class="nav">
+          <a href="index.html" class="activo">Inicio</a>
+          <a href="noticias.html">Noticias</a>
+          <a href="favoritos.html">Favoritos</a>
+          <a href="contacto.html">Contacto</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="contenedor hero-grid">
+          <div>
+            <h1>Noticias que importan, contadas con claridad</h1>
+            <p>
+              Un espacio para explorar historias educativas, tecnológicas, turísticas y comerciales, con la información
+              completa a un clic de distancia.
+            </p>
+            <a class="boton" href="noticias.html">Explorar noticias</a>
+          </div>
+          <div class="hero-imagen">
+            <img src="https://picsum.photos/seed/hero1/700/520" alt="Portada de la edición del día" />
+          </div>
+        </div>
+      </section>
+
+      <section class="seccion">
+        <div class="contenedor">
+          <div class="seccion-titulo">
+            <h2>Noticias destacadas</h2>
+            <a href="noticias.html">Ver todas</a>
+          </div>
+          <div id="destacadas-grid" class="grid-tarjetas"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="pie">
+      <div class="contenedor">
+        <span>© 2026 NewsHub — Proyecto académico de Desarrollo Front-end</span>
+        <a href="contacto.html">Contáctanos</a>
+      </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/render.js"></script>
+    <script src="js/home.js"></script>
+  </body>
+</html>
