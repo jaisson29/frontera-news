@@ -1,11 +1,8 @@
 <script lang="ts" setup>
 import { useNoticiasStore } from "@/stores/noticiaStore";
-defineProps({
-  noticia: {
-    type: Object,
-    required: true,
-  },
-});
+import type { Noticia } from "@/stores/noticiaStore";
+
+defineProps<{ noticia: Noticia }>();
 
 const newsStore = useNoticiasStore();
 </script>

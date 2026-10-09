@@ -1,40 +1,42 @@
 <script lang="ts" setup>
 import { useNoticiasStore } from "@/stores/noticiaStore";
+import type { Noticia } from "@/stores/noticiaStore";
 import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
 
 const route = useRoute();
 const newsStore = useNoticiasStore();
 
-const noticia = ref(null);
+const noticia = ref<Noticia | null>(null);
 
 onMounted(() => {
   const id = Number.parseInt(route.params.id as string);
-  noticia.value = newsStore.buscarPorId(id);
+  noticia.value = newsStore.buscarPorId(id) ?? null;
 });
 console.log(newsStore.favoritos);
 </script>
 
 <template>
   <main>
-    <article id="detalle-contenedor" class="detalle">
-      <img id="detalle-imagen" class="detalle-imagen" :src="noticia?.imagen" :alt="noticia?.titulo" />
+    <article v-if="noticia" id="detalle-contenedor" class="detalle">
+      <img id="detalle-imagen" class="detalle-imagen" :src="noticia.imagen" :alt="noticia.titulo" />
       <p class="detalle-meta">
-        <span id="detalle-categoria">{{ newsStore.NOMBRES_CATEGORIA[noticia?.categoria] }}</span> · <span id="detalle-fecha">{{ noticia?.fecha }}</span>
+        <span id="detalle-categoria">{{ newsStore.NOMBRES_CATEGORIA[noticia.categoria] }}</span> ·
+        <span id="detalle-fecha">{{ noticia.fecha }}</span>
       </p>
-      <h1 id="detalle-titulo">{{ noticia?.titulo }}</h1>
-      <p id="detalle-contenido" class="detalle-contenido">{{ noticia?.contenido }}</p>
+      <h1 id="detalle-titulo">{{ noticia.titulo }}</h1>
+      <p id="detalle-contenido" class="detalle-contenido">{{ noticia.contenido }}</p>
 
       <div class="acciones-detalle">
-        <button id="boton-favorito" class="boton-secundario" @click="newsStore.toggleFavorito(noticia?.id)">
-          <span v-if="newsStore.esFavorito(noticia?.id)">Quitar de favoritos</span>
+        <button id="boton-favorito" class="boton-secundario" @click="newsStore.toggleFavorito(noticia.id)">
+          <span v-if="newsStore.esFavorito(noticia.id)">Quitar de favoritos</span>
           <span v-else>Agregar a favoritos</span>
         </button>
         <a class="boton-secundario" href="contacto.html">Contactar</a>
       </div>
     </article>
 
-    <div id="detalle-no-encontrada" class="detalle" hidden>
+    <div v-else id="detalle-no-encontrada" class="detalle">
       <h1>Noticia no encontrada</h1>
       <p>
         La noticia que buscas no existe o fue eliminada.

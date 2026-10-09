@@ -1,6 +1,22 @@
 import { ref, computed, watch } from "vue";
 import { defineStore } from "pinia";
 
+export type Categoria =
+  | "educativas"
+  | "tecnologicas"
+  | "turisticas"
+  | "comerciales";
+
+export interface Noticia {
+  id: number;
+  categoria: Categoria;
+  titulo: string;
+  resumen: string;
+  contenido: string;
+  imagen: string;
+  fecha: string;
+}
+
 export const useCounterStore = defineStore("counter", () => {
   const count = ref(0);
   const doubleCount = computed(() => count.value * 2);
@@ -12,7 +28,7 @@ export const useCounterStore = defineStore("counter", () => {
 });
 
 export const useNoticiasStore = defineStore("noticias", () => {
-  const noticias = ref([
+  const noticias = ref<Noticia[]>([
     {
       id: 1,
       categoria: "tecnologicas",
@@ -130,7 +146,7 @@ export const useNoticiasStore = defineStore("noticias", () => {
     return noticias.value.find((noticia) => noticia.id === id);
   };
 
-  const NOMBRES_CATEGORIA = {
+  const NOMBRES_CATEGORIA: Record<Categoria, string> = {
     educativas: "Educativa",
     tecnologicas: "Tecnológica",
     turisticas: "Turística",
